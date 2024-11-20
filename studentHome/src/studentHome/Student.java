@@ -1,5 +1,7 @@
 package studentHome;
 
+import java.util.Objects;
+
 public class Student {
 	private int no;
 	private String name;
@@ -8,6 +10,7 @@ public class Student {
 	private int math;
 	private int sum;
 	private double avg;
+
 	
 	public Student(int no, String name, int kor, int eng, int math, int sum, double avg) {
 		super();
@@ -28,16 +31,6 @@ public class Student {
 		this.eng = eng;
 		this.math = math;
 	}
-	
-	public Student(int no,String name, int kor, int eng, int math) {
-		super();
-		this.no = no;
-		this.name = name;
-		this.kor = kor;
-		this.eng = eng;
-		this.math = math;
-	}
-	
 
 	public int getNo() {
 		return no;
@@ -96,9 +89,24 @@ public class Student {
 	}
 
 	
+	
 	@Override
 	public String toString() {
 		return "Student [no=" + no + ", name=" + name + ", kor=" + kor + ", eng=" + eng + ", math=" + math + ", sum="
 				+ sum + ", avg=" + avg + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(sum);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof Student)) {
+			return false;
+	}
+		return this.sum == ((Student)obj).sum;
+	}
 }
+
