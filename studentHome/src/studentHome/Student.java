@@ -10,9 +10,25 @@ public class Student {
 	private int math;
 	private int sum;
 	private double avg;
+	private String grade;
 
 	
-	public Student(int no, String name, int kor, int eng, int math, int sum, double avg) {
+	public Student(int kor, int eng, int math) {
+		super();
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+	}
+	
+	public Student(int no, int kor, int eng, int math) {
+		super();
+		this.no = no;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+	}
+	
+	public Student(int no, String name, int kor, int eng, int math, int sum, double avg, String grade) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -21,15 +37,7 @@ public class Student {
 		this.math = math;
 		this.sum = sum;
 		this.avg = avg;
-	}
-	
-	public Student(int kor, int eng, int math) {
-		super();
-		this.no = no;
-		this.name = name;
-		this.kor = kor;
-		this.eng = eng;
-		this.math = math;
+		this.grade = grade;
 	}
 
 	public int getNo() {
@@ -87,13 +95,19 @@ public class Student {
 	public void setAvg(double avg) {
 		this.avg = avg;
 	}
+	
+	public String getGrade() {
+		return grade;
+	}
 
-	
-	
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [no=" + no + ", name=" + name + ", kor=" + kor + ", eng=" + eng + ", math=" + math + ", sum="
-				+ sum + ", avg=" + avg + "]";
+				+ sum + ", avg=" + avg + ", grade=" + grade + "]";
 	}
 
 	@Override
