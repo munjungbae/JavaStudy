@@ -1,8 +1,8 @@
-package studentHome;
+package com.kh.student.model;
 
 import java.util.Objects;
 
-public class Student {
+public class StudentVO {
 	private int no;
 	private String name;
 	private int kor;
@@ -13,15 +13,19 @@ public class Student {
 	private String grade;
 	private int rank;
 
+	public StudentVO() {
+		super();
+	}
 	
-	public Student(int kor, int eng, int math) {
+	
+	public StudentVO(int kor, int eng, int math) {
 		super();
 		this.kor = kor;
 		this.eng = eng;
 		this.math = math;
 	}
 	
-	public Student(int no, int kor, int eng, int math) {
+	public StudentVO(int no, int kor, int eng, int math) {
 		super();
 		this.no = no;
 		this.kor = kor;
@@ -29,7 +33,18 @@ public class Student {
 		this.math = math;
 	}
 	
-	public Student(int no, String name, int kor, int eng, int math, int sum, double avg, String grade, int rank) {
+	public StudentVO(int no, String name, int kor, int eng, int math, int sum, double avg) {
+		super();
+		this.no = no;
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.sum = sum;
+		this.avg = avg;
+	}
+	
+	public StudentVO(int no, String name, int kor, int eng, int math, int sum, double avg, String grade, int rank) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -116,10 +131,18 @@ public class Student {
 	}
 
 
+	
 	@Override
 	public String toString() {
-		return "Student [no=" + no + ", name=" + name + ", kor=" + kor + ", eng=" + eng + ", math=" + math + ", sum="
-				+ sum + ", avg=" + avg + ", grade=" + grade + ", rank=" + rank + "]";
+		return String.format("%-5s","학번 :") + String.format("%-8s", no) + 
+			   String.format("%-5s","이름 :") + String.format("%-8s", name) +
+			   String.format("%-7s","국어점수 :") + String.format("%-8s", kor) + 
+			   String.format("%-7s","영어점수 :") + String.format("%-8s", eng) + 
+			   String.format("%-7s","수학점수 :") + String.format("%-8s", math) + 
+			   String.format("%-5s","합계 :") + String.format("%-8s", sum) + 
+			   String.format("%-5s","평균 : ") + String.format("%-8s", avg) + 
+			   String.format("%-5s","학점 : ") + String.format("%-8s", grade) + 
+			   String.format("%-5s","순위 : ") + String.format("%-8s", rank);
 	}
 
 	@Override
@@ -129,10 +152,9 @@ public class Student {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(!(obj instanceof Student)) {
+		if(!(obj instanceof StudentVO)) {
 			return false;
 	}
-		return this.sum == ((Student)obj).sum;
+		return this.sum == ((StudentVO)obj).sum;
 	}
 }
-

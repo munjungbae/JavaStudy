@@ -1,5 +1,4 @@
-package studentHome;
-
+package com.kh.student.controller;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -8,13 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DBConnection {
+public class DBUtility {
+	
 	public static Connection dbCon() {
 
 		// 변수 선언
 		Connection con = null;
-		Statement stmt = null;
-		ResultSet rs = null;
 		// 1. jdbc driver load
 		// 2. connection
 		try {
@@ -99,4 +97,4 @@ public class DBConnection {
 			}
 		}
 	}
-}
+}	

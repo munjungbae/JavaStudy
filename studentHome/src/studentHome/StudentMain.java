@@ -33,7 +33,7 @@ public class StudentMain {
 			case StuIF.DELETE:
 				stuDelete();
 				break;
-			case StuIF.PROC:
+			case StuIF.GRADE:
 				stuGrade();
 				break;
 			case StuIF.FUNC:
@@ -200,8 +200,9 @@ public class StudentMain {
 			int sum = rs.getInt("SUM");
 			double avg = rs.getDouble("AVG");
 			String grade = rs.getString("GRADE");
+			int rank = rs.getInt("RANK");
 
-			Student stu = new Student(no, name, kor, eng, math, sum, avg, grade);
+			Student stu = new Student(no, name, kor, eng, math, sum, avg, grade, rank);
 			stuList.add(stu);
 		}
 
